@@ -1,0 +1,19 @@
+{
+  "name": "apigw-example",
+  "version": "1.0.0",
+  "description": "Example of using the gateway from the command line in JS",
+  "type": "module",
+  "scripts": {
+    "start": "set OPENSSL_CONF=D:\\DRepos\\dw-read\\config\\openssl.cnf && node main.js"
+  },
+  "author": "Rich Boakes <rich@boakes.org>",
+  "license": "ISC",
+  "engines": {
+    "node": ">=16.0.0 <17.0.0"
+  },
+  "dependencies": {
+    "17": "^0.0.0",
+    "chalk": "^5.2.0",
+    "node-fetch": "^3.3.0"
+  }
+}
