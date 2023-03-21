@@ -15,8 +15,6 @@ const basePath = '/gateway/BiDataWarehouseSitsCourseModuleAssessmentAPI';
 async function getTutorial(studentID) {
   const route = `student/SOC/tutorial/${studentID}/${data.years.sep22}`;
   const url = `${host}${basePath}/${route}`;
-
-  console.log(url);
   
   const result = await fetch(url, options);
   return await result.json();
@@ -27,7 +25,6 @@ function timeout(ms) {
 }
 
 for (const student in data.studentID){
-  await timeout(500);
   const tutorial = await getTutorial(data.studentID[student]);
   console.log(tutorial);
 }

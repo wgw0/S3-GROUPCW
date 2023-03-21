@@ -4,7 +4,7 @@
   "description": "Example of using the gateway from the command line in JS",
   "type": "module",
   "scripts": {
-    "start": "set OPENSSL_CONF=D:\\DRepos\\dw-read\\config\\openssl.cnf && node main.js"
+    "start": "export OPENSSL_CONF=/Users/martarodrigues/Desktop/S3-GROUPCW/WILL-CODE/config/openssl.cnf && node main.js"
   },
   "author": "Rich Boakes <rich@boakes.org>",
   "license": "ISC",
