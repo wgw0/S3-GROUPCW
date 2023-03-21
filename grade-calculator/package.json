@@ -1,0 +1,15 @@
+{
+  "name": "grade-calculator",
+  "version": "1.0.0",
+  "description": "Grade calculator using portSOC API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sint Lwin H - UP2151241, Mark C - UP2060197, Marta R - UP2079248, Nikita C - UP2059578, Pablo B - UP2070278, Will W - UP2021407",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "sass": "^1.59.3"
+  }
+}
