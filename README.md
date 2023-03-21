@@ -18,6 +18,9 @@ Repository for the join work of our Sprint 3 group coursework.
 
 7. Try and keep your local files updated regularly so you are not working on deprecated code.
 
+## Project outline
+
+![Flowchart - Project Outline](./img/FlowDiagram.png)
 
 ## Authors
 
