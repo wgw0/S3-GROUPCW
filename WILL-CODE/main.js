@@ -21,7 +21,7 @@ async function getTutorial(studentID) {
 }
 
 function timeout(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms)); //https://stackoverflow.com/questions/33289726/combination-of-async-function-await-settimeout
+  return new Promise(resolve => setTimeout(resolve, ms)); //https://stackoverflow.com/questions/33289726/combination-of-async-function-await-settimeoutN
 }
 
 for (const student in data.studentID){
