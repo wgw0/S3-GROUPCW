@@ -14,9 +14,10 @@ Repository for the join work of our Sprint 3 group coursework.
 
 5. Similarly try and comment parts of code that are complex or just not easy to follow.
 
-6. Create an issue for what you are working on so the group is aware of the current functions being worked on.
+6. Create an issue for what you are working on so the group is aware of the current functions being worked on. Make these issues informative not just "front-end" or "back-end".
 
 7. Try and keep your local files updated regularly so you are not working on deprecated code.
+
 
 ## Authors
 
