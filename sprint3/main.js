@@ -1,9 +1,6 @@
 import * as crypto from "crypto";
-
 import fetch from 'node-fetch';
 import { promises as fs, read, readFile } from 'fs';
-import { rejects } from "assert";
-import { Console } from "console";
 
 // utility fn to load a json file (oh how it was easy when we could just `require`)
 const load = async (file) => JSON.parse( await fs.readFile(file, "utf8") );
