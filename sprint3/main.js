@@ -2,6 +2,8 @@ import * as crypto from "crypto";
 
 import fetch from 'node-fetch';
 import { promises as fs, read, readFile } from 'fs';
+import { rejects } from "assert";
+import { Console } from "console";
 
 // utility fn to load a json file (oh how it was easy when we could just `require`)
 const load = async (file) => JSON.parse( await fs.readFile(file, "utf8") );
@@ -51,9 +53,9 @@ function getModule() {
 
 
 // API request for module assesments
-function getModMents(module) {
+function getModMents() {
 
-  const mCode = module.module.code;
+  const mCode = "M30236";
   const mYear = data.years.sep22;
   const route = `module/assessments/${mCode}/${mYear}`;
   
@@ -64,7 +66,6 @@ function getModMents(module) {
 function getStudentInfo(id) {
 
   const route = `student/SOC/tutorial/${id}/${data.years.sep22}`;
-  
   return getRequest(route);
 }
 
@@ -78,13 +79,64 @@ async function getRequest(route) {
 }
 
 /**
+ * const info = await getInfo();
  * const courses = await getCourses();
- * const courseInfo = await getCourseInfo(courses);
+ * const courseInfo = await getCourseInfo();
  * const moduleInfo = await getModule();
  * const moduleAssesments = await getModMents(moduleInfo);
 */
 
+const STUDENTS = [];
+
+/* 
+* loop over each student and send a request
+* If the response is null, ignore it and 
+* only store the existing student data into STUDENTS array
+*/
 for (const student in data.students) {
   const studentInfo = await getStudentInfo(data.students[student]);
-  console.log(studentInfo); 
+  if (studentInfo.studentModules === null) {
+    console.log(`${student} - The student id cannot be reached.`);
+    continue;
+  }
+  STUDENTS.push(studentInfo);
 }
+
+// loop over each student and each of their modules
+for (const student in STUDENTS) {
+  const studentModules = STUDENTS[student].studentModules.modules;
+  for (const module in studentModules) {
+    console.log(studentModules[module]);
+  }
+}
+
+const jsonData = {
+  student: 1,
+  module: "",
+  type: '',
+  points: 100
+};
+
+// get response about student's marks from both the courseworks and exams
+
+// push the response as object into .json file
+
+/*
+const studentInfoArray = [];
+
+for (const student in data.students) {
+  setTimeout(async () => {
+    const studentInfo = await getStudentInfo(data.students[student]);
+    studentInfoArray.push(studentInfo);
+    console.log(studentInfo); 
+    if (studentInfoArray.length === Object.keys(data.students).length) {
+      const studentInfoJSON = JSON.stringify(studentInfoArray);
+      const fs = require('fs');
+      fs.writeFile('studentInfo.json', studentInfoJSON, (err) => {
+        if (err) throw err;
+        console.log('Student information saved to studentInfo.json');
+      });
+    }
+  }, 3000);
+}
+ */
